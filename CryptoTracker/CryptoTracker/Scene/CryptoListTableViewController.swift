@@ -18,13 +18,33 @@ final class CryptoListTableViewController: UIViewController {
         tableView.rowHeight = 100
         tableView.register(CryptoCell.self, forCellReuseIdentifier: CryptoCell.identifier)
 
-
+        tableView.backgroundView = stateDescriptonLabel
         return tableView
+    }()
+
+    private let stateDescriptonLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .systemGray
+        return label
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupViewModel()
+    }
+
+    private func setupViewModel() {
+        viewModel.stateChanged =  { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+
+                self.tableView.reloadData()
+                self.stateDescriptonLabel.text = self.viewModel.stateDescription
+            }
+        }
+        viewModel.loadCryptos()
     }
 
     private func getCryptoCell(indexPath: IndexPath) -> UITableViewCell {

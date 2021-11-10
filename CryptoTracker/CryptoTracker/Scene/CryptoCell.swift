@@ -84,6 +84,10 @@ final class CryptoCell: UITableViewCell {
         nameLabel.text = model.name
         symbolLabel.text = model.symbol
         priceLabel.text = model.price
+
+        guard let url = URL(string: model.imageString ?? "") else {
+            return
+        }
     }
 
     private func clear() {
