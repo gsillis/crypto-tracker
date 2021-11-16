@@ -25,6 +25,7 @@
 		DED133A52734A819008ABC76 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED133A42734A819008ABC76 /* NetworkService.swift */; };
 		DED133A72734A93A008ABC76 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED133A62734A93A008ABC76 /* Models.swift */; };
 		DED133A92734BB81008ABC76 /* CryptoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED133A82734BB81008ABC76 /* CryptoListViewModel.swift */; };
+		DEE8094E27446A900075A38B /* UIImageView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE8094D27446A900075A38B /* UIImageView+LoadImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		DED133A42734A819008ABC76 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DED133A62734A93A008ABC76 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		DED133A82734BB81008ABC76 /* CryptoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModel.swift; sourceTree = "<group>"; };
+		DEE8094D27446A900075A38B /* UIImageView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				DED1339427349370008ABC76 /* ViewCode.swift */,
 				DED1339627349389008ABC76 /* UIView+Constraints.swift */,
 				DED1339E2734A15B008ABC76 /* Formatter+Currency.swift */,
+				DEE8094D27446A900075A38B /* UIImageView+LoadImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				DED133A22734A77F008ABC76 /* Constants.swift in Sources */,
 				DED1339B273497F3008ABC76 /* CryptoCell.swift in Sources */,
 				DED13363273492AC008ABC76 /* SceneDelegate.swift in Sources */,
+				DEE8094E27446A900075A38B /* UIImageView+LoadImage.swift in Sources */,
 				DED1339F2734A15B008ABC76 /* Formatter+Currency.swift in Sources */,
 				DED133A92734BB81008ABC76 /* CryptoListViewModel.swift in Sources */,
 				DED1336B273492AC008ABC76 /* CryptoTracker.xcdatamodeld in Sources */,

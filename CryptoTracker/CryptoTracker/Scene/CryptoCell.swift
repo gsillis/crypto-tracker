@@ -13,6 +13,8 @@ final class CryptoCell: UITableViewCell {
         return String(describing: CryptoCell.self)
     }
 
+    private var task: URLSessionDataTask?
+
     private var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .headline)
@@ -41,7 +43,6 @@ final class CryptoCell: UITableViewCell {
     private var imageLogo: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        image.backgroundColor = .red
 
         return image
     }()
@@ -84,10 +85,7 @@ final class CryptoCell: UITableViewCell {
         nameLabel.text = model.name
         symbolLabel.text = model.symbol
         priceLabel.text = model.price
-
-        guard let url = URL(string: model.imageString ?? "") else {
-            return
-        }
+        task = imageLogo.downloadImage(from: model.imageString)
     }
 
     private func clear() {
@@ -96,6 +94,8 @@ final class CryptoCell: UITableViewCell {
         nameLabel.text = nil
         symbolLabel.text = nil
         priceLabel.text = nil
+        task?.cancel()
+        task = nil
     }
 }
 
