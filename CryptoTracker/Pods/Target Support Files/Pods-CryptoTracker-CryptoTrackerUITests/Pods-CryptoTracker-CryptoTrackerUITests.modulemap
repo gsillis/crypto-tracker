@@ -1,0 +1,6 @@
+framework module Pods_CryptoTracker_CryptoTrackerUITests {
+  umbrella header "Pods-CryptoTracker-CryptoTrackerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
