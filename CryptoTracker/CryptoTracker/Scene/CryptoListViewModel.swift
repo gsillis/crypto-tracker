@@ -12,6 +12,7 @@ final class CryptoListViewModel {
 
     private var cryptos = [CryptoCellModel]()
     private let service: NetworkService
+    private let repository: CryptoRepository
 
     enum State {
         case loading
@@ -48,9 +49,9 @@ final class CryptoListViewModel {
         }
     }
 
-
-    init(service: NetworkService = NetworkService.shared) {
+    init(service: NetworkService = NetworkService.shared, repository: CryptoRepository = CryptoRemoteRepository()) {
         self.service = service
+        self.repository = repository
     }
 
     func modelForRow(at index: Int) -> CryptoCellModel {
@@ -59,7 +60,7 @@ final class CryptoListViewModel {
 
     func loadCryptos() {
         currentState = .loading
-        service.requestAllCryptos { [weak self] result in
+        repository.requestAllCryptos { [weak self] result in
 
             guard let self = self else { return }
 
