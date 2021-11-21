@@ -1,14 +1,13 @@
 name: CI
 
 on:
+    paths:
+      - '!/Constants.swift'
     push:
     branches: [ main ]
-        paths-ignore:
-      - '/Constants.swift'
+
     pull_request:
     branches: [ main ]
-        paths-ignore:
-      - '/Constants.swift'
 
 jobs:
     build-and-test:
