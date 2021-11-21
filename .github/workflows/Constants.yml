@@ -1,7 +1,0 @@
- - name: Write Constants.swift
-    run: |
-      touch CryptoTracker/CryptoTracker/Constants/Constants.swift
-      echo $Constants.swift >> CryptoTracker/CryptoTracker/Constants/Constants.swift
-      cat  CryptoTracker/CryptoTracker/Constants/Constants.swift
-
-
