@@ -6,7 +6,7 @@ target 'CryptoTracker' do
   use_frameworks!
 
   # Pods for CryptoTracker
-pod 'Moya', '~> 15.0'
+pod 'Moya'
 
   target 'CryptoTrackerTests' do
     inherit! :search_paths
