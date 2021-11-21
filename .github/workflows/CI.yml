@@ -3,10 +3,12 @@ name: CI
 on:
     push:
     branches: [ main ]
-    paths-ignore:
-      - 'CryptoTracker/CryptoTracker/Constants/Constants.swift'
+        paths-ignore:
+      - '/Constants.swift'
     pull_request:
     branches: [ main ]
+        paths-ignore:
+      - '/Constants.swift'
 
 jobs:
     build-and-test:
