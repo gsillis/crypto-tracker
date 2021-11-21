@@ -2,22 +2,22 @@ name: CI
 
 on:
     push:
-    branches: [ main ]
+        branches: [ main ]
 
     pull_request:
-    branches: [ main ]
+        branches: [ main ]
 
 jobs:
     build:
-    runs-on: macos-latest
+        runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
 
     - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+    run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
     - name: Build
-        run: xcodebuild clean build -workspace CryptoTracker/CryptoTracker.xcworkspace -scheme "CryptoTracker" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
+    run: xcodebuild clean build -workspace CryptoTracker/CryptoTracker.xcworkspace -scheme "CryptoTracker" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
 
 
