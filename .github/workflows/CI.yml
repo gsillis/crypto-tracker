@@ -17,7 +17,7 @@ jobs:
     - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
-    - name: Build and test
-        run: xcodebuild -workspace CryptoTracker/CryptoTracker.xcworkspace -scheme "CryptoTracker" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
+    - name: Build
+        run: xcodebuild clean build -workspace CryptoTracker/CryptoTracker.xcworkspace -scheme "CryptoTracker" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
 
 
