@@ -1,8 +1,6 @@
 name: CI
 
 on:
-    paths:
-      - '!/CryptoTracker/Constants/**'
     push:
     branches: [ main ]
 
@@ -10,7 +8,7 @@ on:
     branches: [ main ]
 
 jobs:
-    build-and-test:
+    build:
     runs-on: macos-latest
 
     steps:
@@ -20,6 +18,6 @@ jobs:
         run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
     - name: Build and test
-        run: xcodebuild clean build test -workspace CryptoTracker/CryptoTracker.xcworkspace -scheme "CryptoTracker" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
+        run: xcodebuild -workspace CryptoTracker/CryptoTracker.xcworkspace -scheme "CryptoTracker" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
 
 
