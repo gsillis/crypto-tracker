@@ -18,8 +18,8 @@ struct CryptoCellModel {
         crypto.price?.currency ?? "Not found"
     }
 
-    var imageString: String? {
-        crypto.imageUrl
+    var imageString: String {
+        crypto.imageUrl ?? ""
     }
 
     private let crypto: Crypto

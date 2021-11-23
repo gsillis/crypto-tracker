@@ -7,6 +7,7 @@ target 'CryptoTracker' do
 
   # Pods for CryptoTracker
 pod 'Moya', '~> 15.0'
+pod 'Kingfisher', '~> 7.0'
 
   target 'CryptoTrackerTests' do
     inherit! :search_paths

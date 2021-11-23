@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Kingfisher
+import SwiftUI
 
 final class CryptoCell: UITableViewCell {
 
@@ -13,13 +15,13 @@ final class CryptoCell: UITableViewCell {
         return String(describing: CryptoCell.self)
     }
 
-    private var task: URLSessionDataTask?
+    //    private var task: URLSessionDataTask?
 
     private var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .headline)
         label.textColor = .systemGray
-      
+
         return label
     }()
 
@@ -85,7 +87,23 @@ final class CryptoCell: UITableViewCell {
         nameLabel.text = model.name
         symbolLabel.text = model.symbol
         priceLabel.text = model.price
-        task = imageLogo.downloadImage(from: model.imageString)
+
+        imageLogo.kf.indicatorType = .activity
+        let retry = DelayRetryStrategy(maxRetryCount: 3, retryInterval: .seconds(3))
+
+        imageLogo.kf.setImage(with: URL(string: model.imageString),
+                              options: [.retryStrategy(retry),
+                                        .transition(ImageTransition.fade(1))]) {
+            result in
+
+            switch result {
+                case.failure:
+                    self.imageLogo.image = UIImage(named: "placeholder-image")
+                default:
+                    break
+            }
+        }
+        //        task = imageLogo.downloadImage(from: model.imageString)
     }
 
     private func clear() {
@@ -94,8 +112,10 @@ final class CryptoCell: UITableViewCell {
         nameLabel.text = nil
         symbolLabel.text = nil
         priceLabel.text = nil
-        task?.cancel()
-        task = nil
+        imageLogo.kf.cancelDownloadTask()
+
+        //        task?.cancel()
+        //        task = nil
     }
 }
 
